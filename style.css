@@ -1,11 +1,18 @@
 body {
     font-family: 'Varela Round', sans-serif;
     font-size: 10px;
-    background: #f5f5f5;
+    background-color: #f5f5f5;
   }
 
-  .table-wrapper {
-    background: #fff;
+  .container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  .table-wrapper{
+    background-color: #fff;
       padding: 20px 25px;
       margin: 30px 0;
       border-radius: 3px;  
@@ -13,7 +20,7 @@ body {
 
 .table-title {
     padding-bottom: 15px;
-        background: #435d7d;
+        background-color: #435d7d;
         color: #fff;
         padding: 16px 30px;
        margin: -20px -25px 10px;
@@ -51,3 +58,6 @@ th {
     color: #566787;
 }
 
+.add-user {
+    padding-top: 10px;
+}
