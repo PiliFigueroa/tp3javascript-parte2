@@ -21,15 +21,50 @@
         <div class="bg-white">
             <div class="table-wrapper">
                 <div class="table-title">
-                    <div class="row d-flex flex-row justify-content-between">
+                    <div class="row d-flex flex-xs-column flex-sm-row justify-content-md-between">
                         <div class="col-sm-6">
                             <h2>Manage Users</h2>
                         </div>
-                        <div class="col-sm-6 d-flex justify-content-end">
-                            <a class="btn btn-success add-user" data-toggle="modal">
+                        <div class="col-sm-6 d-flex justify-content-sm-end">
+                            <a class="btn btn-success add-user" data-toggle="modal" data-target="#my-modal">
                                 <i class="material-icons">&#xE147;</i>
                                 <span>Add New User</span>
                             </a>
+                        </div>
+                        <div class="modal fade" id="my-modal" tabindex="-1" role="dialog" aria-labelledby="form-modal"
+                            aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modal-label">Modal title</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label for="name">Name</label>
+                                            <input type="text" name="name" id="name" class="form-control" placeholder="Name" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email">Email</label>
+                                            <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="adress">Adress</label>
+                                            <input type="text" name="adress" id="adress" class="form-control" placeholder="Adress" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="phone">Phone Number</label>
+                                            <input type="tel" name="phone" id="phone" class="form-control" placeholder="Phone Number" required>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-success">Add Employee</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -64,8 +99,14 @@
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="app.js"></script>
 

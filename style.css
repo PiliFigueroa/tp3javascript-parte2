@@ -62,6 +62,10 @@ th {
 }
 
 .filter {
-  width: 100%;
-  margin-bottom: 20px;
+  width: 90%;
+  margin: 20px;
+}
+
+.modal-body .form-group label {
+  color: #424242;
 }
