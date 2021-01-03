@@ -65,14 +65,20 @@ th {
   margin: 20px 0;
 }
 
+.modal h5 {
+  color: #424242;
+}
+
 .modal-body .form-group label {
   color: #424242;
   font-size: 12px;
 }
 
-.modal-body .form-group input {
+.modal-body .form-group input,
+.modal-body .form-group textarea {
   width: 100%;
   margin: 10px 0;
   display: flex;
   justify-content: end;
+  max-height: 150px;
 }
