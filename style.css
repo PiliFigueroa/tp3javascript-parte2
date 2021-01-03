@@ -5,8 +5,7 @@ body {
 }
 
 .container {
-  padding-right: 15px;
-  padding-left: 15px;
+  padding: 0 15px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -62,8 +61,8 @@ th {
 }
 
 .filter {
-  width: 90%;
-  margin: 20px;
+  width: 100%;
+  margin: 20px 0;
 }
 
 .modal-body .form-group label {
