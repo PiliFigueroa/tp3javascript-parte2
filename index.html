@@ -57,7 +57,7 @@
                                                             placeholder="Email" required>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="adress">Adress</label>
+                                                        <label for="adress">Address</label>
                                                         <textarea name="adress" id="adress" cols="30" rows="10"
                                                             class="form-control" placeholder="Adress"
                                                             required></textarea>
@@ -74,7 +74,7 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-success" id="btn-add-user">Add
+                                        <button type="submit" class="btn btn-success" id="btn-add-user">Add
                                             User
                                             <div class="spinner-border text-light d-none spinner-border-sm ms-4"
                                                 id="spinner" role="status">
@@ -100,7 +100,7 @@
             </div>
             <div class="row">
                 <div class="table-responsive">
-                    <table class="table table-striped table-hover">
+                    <table class="table table-striped table-hover" id="users-list">
                         <thead>
                             <tr>
                                 <th>Name</th>
