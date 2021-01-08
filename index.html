@@ -31,60 +31,100 @@
                                 <span>Add New User</span>
                             </a>
                         </div>
-                        <div class="modal fade" id="my-modal" tabindex="-1" role="dialog" aria-labelledby="form-modal"
-                            aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="modal-label">Modal title</h5>
-                                        <button type="button" class="btn-btn-secondary close" data-dismiss="modal"
-                                            aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <div class="form-group">
-                                                        <label for="name">Name</label>
-                                                        <input type="text" name="name" id="name" class="form-control"
-                                                            placeholder="Name" required>
+                        <form action="" class="form" id="form">
+                            <div class="modal fade" id="my-modal" tabindex="-1" role="dialog"
+                                aria-labelledby="form-modal" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="modal-label">Modal title</h5>
+                                            <button type="button" class="btn-btn-secondary close" data-dismiss="modal"
+                                                aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <!-- Group: name -->
+                                                        <div class="form-group" id="name-group">
+                                                            <label for="name" class="form-label">Name</label>
+                                                            <div class="form-group-input">
+                                                                <input type="text" name="name" id="name"
+                                                                    class="form-control" placeholder="Name" required>
+                                                                <i
+                                                                    class="form-validation-state fas fa-times-circle"></i>
+                                                            </div>
+                                                            <p class="form-input-error">The name must have a maximum of
+                                                                50 characters</p>
+                                                        </div>
+                                                        <!-- Group: email -->
+                                                        <div class="form-group" id="email-group">
+                                                            <label for="email" class="form-label">Email</label>
+                                                            <div class="form-group-input">
+                                                                <input type="email" name="email" id="email"
+                                                                    class="form-control" placeholder="Email" required>
+                                                                <i
+                                                                    class="form-validation-state fas fa-times-circle"></i>
+                                                            </div>
+                                                            <p class="form-input-error">The email can only contain
+                                                                letters, numbers, periods,hyphens, and underscores.</p>
+                                                        </div>
+                                                        <!-- Group: address -->
+                                                        <div class="form-group" id="address-group">
+                                                            <label for="address" class="form-label">Address</label>
+                                                            <div class="form-group-input">
+                                                                <input type="text" name="address" id="adress"
+                                                                    class="form-control" placeholder="Address" required>
+                                                                <i
+                                                                    class="form-validation-state fas fa-times-circle"></i>
+                                                            </div>
+                                                            <p class="form-input-error">The address must have a maximum
+                                                                of 50 characters.</p>
+                                                        </div>
+                                                        <!-- Group: phone -->
+                                                        <div class="form-group" id="phone-group">
+                                                            <label for="phone" class="form-label">Phone Number</label>
+                                                            <div class="form-group-input">
+                                                                <input type="tel" name="phone" id="phone"
+                                                                    class="form-control" placeholder="Phone Number"
+                                                                    required>
+                                                                <i class="form-validation-state fas fa-times-circle">
+                                                                </i>
+                                                            </div>
+                                                            <p class="form-input-error">The phone number should only
+                                                                have numbers, spaces and /or hyphens.</p>
+                                                        </div>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label for="email">Email</label>
-                                                        <input type="email" name="email" id="email" class="form-control"
-                                                            placeholder="Email" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="adress">Address</label>
-                                                        <textarea name="adress" id="adress" cols="30" rows="10"
-                                                            class="form-control" placeholder="Adress"
-                                                            required></textarea>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="phone">Phone Number</label>
-                                                        <input type="tel" name="phone" id="phone" class="form-control"
-                                                            placeholder="Phone Number" required>
+                                                    <div class="form-message" id="form-message">
+                                                        <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b>
+                                                            Please fill in the form correctly. </p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-success" id="btn-add-user">Add
-                                            User
-                                            <div class="spinner-border text-light d-none spinner-border-sm ms-4"
-                                                id="spinner" role="status">
-                                                <span class="visually-hidden">Loading...</span>
+                                        <div class="modal-footer">
+
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Close</button>
+                                            <div class="form-group form-group-btn-submit">
+                                                <button type="submit" class="btn btn-success" id="btn-add-user">Add
+                                                    User
+                                                    <div class="spinner-border text-light d-none spinner-border-sm ms-4"
+                                                        id="spinner" role="status">
+                                                        <span class="visually-hidden">Loading...</span>
+                                                    </div>
+                                                </button>
+                                                <p class="form-message-success" id="form-message-success">
+                                                    Form sent successfully!</p>
                                             </div>
-                                        </button>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -130,6 +170,7 @@
         crossorigin="anonymous"></script>
     <script src="dom.js"></script>
     <script type="text/javascript" src="methods.js"></script>
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 
 </body>
 
