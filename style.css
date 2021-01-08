@@ -82,3 +82,87 @@ th {
   justify-content: end;
   max-height: 150px;
 }
+
+.form-control:focus {
+	border: 3px solid #0075FF;
+	outline: none;
+	box-shadow: 3px 0px 30px rgba(163,163,163, 0.4);
+}
+
+.form-control-error-active {
+	display: block;
+}
+
+.form-validation-estate {
+	position: absolute;
+	right: 10px;
+	bottom: 15px;
+	z-index: 100;
+	font-size: 16px;
+	opacity: 0;
+}
+
+.form-message,
+.form-group-btn-submit {
+	grid-column: span 2;
+}
+
+.form-message {
+	height: 45px;
+	line-height: 45px;
+	background: #F66060;
+	padding: 0 15px;
+	border-radius: 3px;
+	display: none;
+}
+
+.form-message-active {
+	display: block;
+}
+
+.form-message p {
+	margin: 0;
+}
+
+.formulario__grupo-btn-enviar {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.form-group-btn-submit {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.form-message-success {
+	font-size: 14px;
+	color: #119200;
+	display: none;
+}
+
+.form-messagge-success-active {
+	display: block;
+}
+
+/* ----- -----  Validation styles ----- ----- */
+
+.form-group-correct .form-validation-estate {
+	color: #1ed12d;
+	opacity: 1;
+}
+
+.form-group-incorrect .form-label {
+	color: #bb2929;
+}
+
+.form-group-incorrect .form-validation-estate {
+	color: #bb2929;
+	opacity: 1;
+}
+
+.form-group-incorrect .form-control {
+	border: 3px solid #bb2929;
+}
+
