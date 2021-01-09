@@ -40,21 +40,15 @@ const validateForm = (e) => {
     }
 }
 
-validateField = (expression, input, field) => {
+const validateField = (expression, input, field) => {
 
     if (expression.test(input.value)) {
         document.getElementById(`${field}-group`).classList.remove('form-group-incorrect');
         document.getElementById(`${field}-group`).classList.add('form-group-correct');
-        document.querySelector(`#${field}-group i`).classList.add('fa-check-circle');
-        document.querySelector(`#${field}-group i`).classList.remove('fa-times-circle');
-        document.querySelector(`#${field}-group .form-input-error`).classList.remove('form-input-error-active');
         fields[field] = true;
     } else {
         document.getElementById(`${field}-group`).classList.add('form-group-incorrect');
         document.getElementById(`${field}-group`).classList.remove('form-group-correct');
-        document.querySelector(`#${field}-group i`).classList.add('fa-times-circle');
-        document.querySelector(`#${field}-group i`).classList.remove('fa-check-circle');
-        document.querySelector(`#${field}-group i .form-input-error`).classList.add('form-input-error-active');
         fields[field] = false;
     }
 }
