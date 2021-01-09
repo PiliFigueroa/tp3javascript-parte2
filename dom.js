@@ -1,4 +1,3 @@
-
 //FUNCIONES DE VALIDACION ACA
 
 const form = document.getElementById('form');
@@ -8,9 +7,9 @@ console.log(inputs)
 
 const expressions = {
     name: /^[a-zA-ZÀ-ÿ\s]{1,50}$/, // Letras y espacios, pueden llevar acentos.
-    address: /^[a-zA-Z0-9_.+-]{1,60}$/,
+    address: /[a-zA-Z0-9_+-]{1,60}/,
     email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-    phone: /^\d{3,13}[\s-]$/, // 1 a 13 numeros. //agregarle poder poner Solo números, espacios y/o guiones medios}$/  []
+    phone: /[0-9]{3,13}/ // 1 a 13 numeros. //agregarle poder poner Solo números, espacios y/o guiones medios}$/  []
 }
 
 const fields = {
