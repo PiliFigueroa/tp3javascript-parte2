@@ -138,11 +138,16 @@ th {
 
 .form-message-success {
 	font-size: 14px;
-	color: #119200;
+	color: #127e03;
+  height: 45px;
+	line-height: 45px;
+	background: #57e663;
+	padding: 0 15px;
+	border-radius: 3px;
 	display: none;
 }
 
-.form-messagge-success-active {
+.form-message-success-active {
 	display: block;
 }
 
