@@ -93,7 +93,7 @@ th {
 	display: block;
 }
 
-.form-validation-estate {
+.form-validation-state {
 	position: absolute;
 	right: 10px;
 	bottom: 15px;
@@ -108,6 +108,7 @@ th {
 }
 
 .form-message {
+  font-size: 14px;
 	height: 45px;
 	line-height: 45px;
 	background: #F66060;
@@ -153,7 +154,7 @@ th {
 
 /* ----- -----  Validation styles ----- ----- */
 
-.form-group-correct .form-validation-estate {
+.form-group-correct .form-validation-state {
 	color: #1ed12d;
 	opacity: 1;
 }
@@ -162,7 +163,7 @@ th {
 	color: #bb2929;
 }
 
-.form-group-incorrect .form-validation-estate {
+.form-group-incorrect .form-validation-state {
 	color: #bb2929;
 	opacity: 1;
 }
