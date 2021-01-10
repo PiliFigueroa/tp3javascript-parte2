@@ -72,3 +72,26 @@ form.addEventListener('submit', (e) => {
         //console.log('formulario no enviado');
     }
 });
+
+
+const table = document.getElementById('users-list');
+const tbody = document.querySelector('tbody');
+
+const createTable = (data) => {
+    for (let prop in data) {
+        const user = data[prop];
+        const tr = document.createElement('tr');
+        for (const userProp in user) {
+            const td = document.createElement('td');
+            if (userProp === 'user') {
+
+                tr.appendChild(td);
+            }
+            else {
+                td.innerHTML = user[userProp];
+                tr.appendChild(td);
+            }
+        }
+
+    }
+}
