@@ -82,16 +82,21 @@ const createTable = (data) => {
         const user = data[prop];
         const tr = document.createElement('tr');
         for (const userProp in user) {
-            const td = document.createElement('td');
-            if (userProp === 'user') {
-
-                tr.appendChild(td);
-            }
-            else {
+            if (userProp === 'address' || userProp === 'email' || userProp === "fullname" || userProp === "phone") {
+                const td = document.createElement('td');
                 td.innerHTML = user[userProp];
+                tr.appendChild(td);
+            } else if (userProp === 'id') {
+                const td = document.createElement('td');
+                const edit = document.createElement('button');
+                const deleteUser = document.createElement('button');
+                deleteUser.innerHTML = `<i class="fa fa-trash" aria-hidden="true"></i>`;
+                edit.innerHTML = `<i class="fas fa-pencil-alt"></i>`;
+                td.appendChild(edit);
+                td.appendChild(deleteUser);
                 tr.appendChild(td);
             }
         }
-
+        tbody.appendChild(tr);
     }
 }
