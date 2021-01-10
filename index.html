@@ -123,10 +123,11 @@
 
             <div class="row d-flex justify-content-md-end justify-content-sm-center">
                 <div class="col-sm-6 col-md-4 mr-5 px-4">
-                    <div class="form-group">
+                    <div class="form-group d-flex flex-row">
                         <label for="filter"></label>
                         <input name="name" id="search" placeholder="Filter..." type="text" class="form-control filter"
                             required>
+                        <button id="filter">Filter</button>
                     </div>
                 </div>
             </div>
@@ -142,7 +143,7 @@
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        <tbody></tbody>
+                        <tbody id="tbody"></tbody>
                     </table>
                 </div>
             </div>
@@ -150,7 +151,7 @@
     </div>
 
 
-
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" data-auto-replace-svg="nest"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>
