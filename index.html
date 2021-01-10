@@ -10,8 +10,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" /> -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -37,7 +35,7 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="modal-label">Modal title</h5>
+                                            <h5 class="modal-title" id="modal-label">New User</h5>
                                             <button type="button" class="btn-btn-secondary close" data-dismiss="modal"
                                                 aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
@@ -53,67 +51,75 @@
                                                             <div class="form-group-input">
                                                                 <input type="text" name="name" id="name"
                                                                     class="form-control" placeholder="Name" required>
+                                                            </div>
+                                                            <!-- Group: email -->
+                                                            <div class="form-group" id="email-group">
+                                                                <label for="email" class="form-label">Email</label>
+                                                                <div class="form-group-input">
+                                                                    <input type="email" name="email" id="email"
+                                                                        class="form-control" placeholder="Email"
+                                                                        required>
+                                                                </div>
+                                                                <!-- Group: address -->
+                                                                <div class="form-group" id="address-group">
+                                                                    <label for="address"
+                                                                        class="form-label">Address</label>
+                                                                    <div class="form-group-input">
+                                                                        <input type="text" name="address" id="adress"
+                                                                            class="form-control" placeholder="Address"
+                                                                            required>
+                                                                    </div>
+                                                                    <!-- Group: phone -->
+                                                                    <div class="form-group" id="phone-group">
+                                                                        <label for="phone" class="form-label">Phone
+                                                                            Number</label>
+                                                                        <div class="form-group-input">
+                                                                            <input type="tel" name="phone" id="phone"
+                                                                                class="form-control"
+                                                                                placeholder="Phone Number" required>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-message" id="form-message">
+                                                                        <p><i class="fas fa-exclamation-triangle"></i>
+                                                                            <b>Error:</b>
+                                                                            Please fill in the form correctly.
+                                                                        </p>
+                                                                    </div>
+                                                                    <div class="form-message-success"
+                                                                        id="form-message-success">
+                                                                        <p><b>Success!</b>
+                                                                            The form has been sent correctly. </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <!-- Group: email -->
-                                                        <div class="form-group" id="email-group">
-                                                            <label for="email" class="form-label">Email</label>
-                                                            <div class="form-group-input">
-                                                                <input type="email" name="email" id="email"
-                                                                    class="form-control" placeholder="Email" required>
+                                                        <div class="modal-footer">
+
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">Close</button>
+                                                            <div class="form-group form-group-btn-submit">
+                                                                <button type="submit" class="btn btn-success"
+                                                                    id="btn-add-user">Add
+                                                                    User
+                                                                    <div class="spinner-border text-light d-none spinner-border-sm ms-4"
+                                                                        id="spinner" role="status">
+                                                                        <span class="visually-hidden">Loading...</span>
+                                                                    </div>
+                                                                </button>
+                                                            </div>
                                                         </div>
-                                                        <!-- Group: address -->
-                                                        <div class="form-group" id="address-group">
-                                                            <label for="address" class="form-label">Address</label>
-                                                            <div class="form-group-input">
-                                                                <input type="text" name="address" id="adress"
-                                                                    class="form-control" placeholder="Address" required>
-                                                        </div>
-                                                        <!-- Group: phone -->
-                                                        <div class="form-group" id="phone-group">
-                                                            <label for="phone" class="form-label">Phone Number</label>
-                                                            <div class="form-group-input">
-                                                                <input type="tel" name="phone" id="phone"
-                                                                    class="form-control" placeholder="Phone Number"
-                                                                    required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-message" id="form-message">
-                                                        <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b>
-                                                            Please fill in the form correctly. </p>
-                                                    </div>
-                                                    <div class="form-message-success" id="form-message-success">
-                                                        <p><b>Success!</b>
-                                                            The form has been sent correctly. </p>
+
                                                     </div>
                                                 </div>
+
                                             </div>
                                         </div>
-                                        <div class="modal-footer">
-
-                                            <button type="button" class="btn btn-secondary"
-                                                data-dismiss="modal">Close</button>
-                                            <div class="form-group form-group-btn-submit">
-                                                <button type="submit" class="btn btn-success" id="btn-add-user">Add
-                                                    User
-                                                    <div class="spinner-border text-light d-none spinner-border-sm ms-4"
-                                                        id="spinner" role="status">
-                                                        <span class="visually-hidden">Loading...</span>
-                                                    </div>
-                                                </button>
-                                            </div>
-                                        </div>
-
                                     </div>
                                 </div>
-                            
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
-            </form>
-        </div>
-    </div>
-</div>
+            </div>
 
             <div class="row d-flex justify-content-md-end justify-content-sm-center">
                 <div class="col-sm-6 col-md-4 mr-5 px-4">
