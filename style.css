@@ -172,3 +172,15 @@ th {
 	border: 3px solid #bb2929;
 }
 
+#filter {
+    height: 35px;
+    margin-top: 20px;
+}
+th {
+  font-size: 20px;
+}
+
+td {
+  font-size: 15px;
+}
+
