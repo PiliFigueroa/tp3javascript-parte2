@@ -76,6 +76,7 @@ form.addEventListener('submit', (e) => {
 
 const table = document.getElementById('users-list');
 const tbody = document.querySelector('tbody');
+const myModalDelete = document.getElementById('my-modal-delete');
 
 const createTable = (data) => {
 
@@ -99,10 +100,13 @@ const createTable = (data) => {
         const td = document.createElement('td');
         const edit = document.createElement('button');
         edit.className = 'btn btn-outline-secondary';
+        edit.innerHTML = `<i class="material-icons" title="Edit">&#xE254;</i>`;
         const deleteUser = document.createElement('button');
         deleteUser.className = 'btn btn-outline-danger';
-        deleteUser.innerHTML = `<i class="fa fa-trash" aria-hidden="true"></i>`;
-        edit.innerHTML = `<i class="fas fa-pencil-alt"></i>`;
+        deleteUser.appendChild(a);
+        deleteUser.innerHTML = `<i class="material-icons" title="Delete">&#xE872;</i>`;
+        deleteUser.addEventListener('click', () => console.log('dato eliminado'));
+
         td.appendChild(edit);
         td.appendChild(deleteUser);
         tr.appendChild(td);
@@ -110,3 +114,5 @@ const createTable = (data) => {
         tbody.appendChild(tr);
     }
 }
+createTable();
+
