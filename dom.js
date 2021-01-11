@@ -78,25 +78,35 @@ const table = document.getElementById('users-list');
 const tbody = document.querySelector('tbody');
 
 const createTable = (data) => {
+
     for (let prop in data) {
         const user = data[prop];
         const tr = document.createElement('tr');
-        for (const userProp in user) {
-            if (userProp === 'address' || userProp === 'email' || userProp === "fullname" || userProp === "phone") {
-                const td = document.createElement('td');
-                td.innerHTML = user[userProp];
-                tr.appendChild(td);
-            } else if (userProp === 'id') {
-                const td = document.createElement('td');
-                const edit = document.createElement('button');
-                const deleteUser = document.createElement('button');
-                deleteUser.innerHTML = `<i class="fa fa-trash" aria-hidden="true"></i>`;
-                edit.innerHTML = `<i class="fas fa-pencil-alt"></i>`;
-                td.appendChild(edit);
-                td.appendChild(deleteUser);
-                tr.appendChild(td);
-            }
-        }
+
+        const nameTd = document.createElement('td');
+        nameTd.innerHTML = user.fullname;
+        tr.appendChild(nameTd);
+        const emailTd = document.createElement('td');
+        emailTd.innerHTML = user.email;
+        tr.appendChild(emailTd);
+        const addressTd = document.createElement('td');
+        addressTd.innerHTML = user.address;
+        tr.appendChild(addressTd);
+        const phoneTd = document.createElement('td');
+        phoneTd.innerHTML = user.phone;
+        tr.appendChild(phoneTd);
+
+        const td = document.createElement('td');
+        const edit = document.createElement('button');
+        edit.className = 'btn btn-outline-secondary';
+        const deleteUser = document.createElement('button');
+        deleteUser.className = 'btn btn-outline-danger';
+        deleteUser.innerHTML = `<i class="fa fa-trash" aria-hidden="true"></i>`;
+        edit.innerHTML = `<i class="fas fa-pencil-alt"></i>`;
+        td.appendChild(edit);
+        td.appendChild(deleteUser);
+        tr.appendChild(td);
+
         tbody.appendChild(tr);
     }
 }
