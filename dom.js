@@ -97,21 +97,41 @@ const createTable = (data) => {
         phoneTd.innerHTML = user.phone;
         tr.appendChild(phoneTd);
 
-        const td = document.createElement('td');
-        const edit = document.createElement('button');
-        edit.className = 'btn btn-outline-secondary';
-        edit.innerHTML = `<i class="material-icons" title="Edit">&#xE254;</i>`;
-        const deleteUser = document.createElement('button');
-        deleteUser.className = 'btn btn-outline-danger';
-        deleteUser.innerHTML = `<i class="material-icons" title="Delete">&#xE872;</i>`;
-        deleteUser.addEventListener('click', () => console.log('dato eliminado'));
-
-        td.appendChild(edit);
-        td.appendChild(deleteUser);
-        tr.appendChild(td);
-
         tbody.appendChild(tr);
     }
 }
 createTable();
 
+const createObject = () => {
+    const inputFullname = document.getElementById('fullname');
+    const inputEmail = document.getElementById('email');
+    const inputAddress = document.getElementById('address');
+    const inputPhone = document.getElementById('phone');
+    const createdAt = '';
+    const id = '';
+    const fullname = inputFullname.value;
+    const email = inputEmail.value;
+    const address = inputAddress.value;
+    const phone = inputPhone.value;
+    return { fullname, email, address, phone, createdAt, id }
+}
+
+const createActions = () => {
+    const rows = tbody.childNodes;
+    rows.forEach(row => {
+        const buttonEdit = document.createElement('button');
+        const buttonDelete = document.createElement('button');
+        const td = document.createElement('td');
+        buttonEdit.className = 'btn btn-outline-secondary';
+        buttonEdit.innerHTML = `<i class="material-icons" title="Edit">&#xE254;</i>`;
+        buttonDelete.className = 'btn btn-outline-danger mx-2';
+        buttonDelete.innerHTML = `<i class="material-icons" title="Delete">&#xE872;</i>`;
+        buttonEdit.setAttribute('id', 'edit');
+        buttonDelete.setAttribute('id', 'delete');
+        buttonEdit.setAttribute('data-toggle', 'modal');
+        buttonEdit.setAttribute('data-target', '#mymodal');
+        td.appendChild(buttonDelete);
+        td.appendChild(buttonEdit);
+        row.appendChild(td);
+    })
+}
