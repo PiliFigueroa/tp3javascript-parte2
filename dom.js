@@ -103,7 +103,6 @@ const createTable = (data) => {
         edit.innerHTML = `<i class="material-icons" title="Edit">&#xE254;</i>`;
         const deleteUser = document.createElement('button');
         deleteUser.className = 'btn btn-outline-danger';
-        deleteUser.appendChild(a);
         deleteUser.innerHTML = `<i class="material-icons" title="Delete">&#xE872;</i>`;
         deleteUser.addEventListener('click', () => console.log('dato eliminado'));
 
