@@ -4,10 +4,10 @@ const form = document.getElementById('form');
 const inputs = document.querySelectorAll('#form input');
 
 const expressions = {
-    name: /^[a-zA-ZÀ-ÿ\s]{1,50}$/,
+    name: /[a-zA-ZÀ-ÿ\s]{1,50}/,
     address: /[a-zA-Z0-9_+-]{1,60}/,
-    email: /^[a-zA-Z0-9_+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9]+$/,
-    phone: /[0-9]{3,13}/
+    email: /[a-zA-Z0-9._+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9]/,
+    phone: /[\s-\d]{8,}/
 }
 
 const fields = {
@@ -16,6 +16,8 @@ const fields = {
     email: false,
     phone: false
 }
+
+let validar = false;
 
 const validateForm = (e) => {
 
@@ -44,10 +46,12 @@ const validateField = (expression, input, field) => {
         document.getElementById(`${field}-group`).classList.remove('form-group-incorrect');
         document.getElementById(`${field}-group`).classList.add('form-group-correct');
         fields[field] = true;
+        return true;
     } else {
         document.getElementById(`${field}-group`).classList.add('form-group-incorrect');
         document.getElementById(`${field}-group`).classList.remove('form-group-correct');
         fields[field] = false;
+        return false;
     }
 }
 
@@ -116,6 +120,12 @@ const createObject = () => {
     return { fullname, email, address, phone, createdAt, id }
 }
 
+const params = new URLSearchParams(window.location.search)
+for (const param in params) {
+    console.log(param)
+}
+const id = params.get('fullname');
+
 const createActions = () => {
     const rows = tbody.childNodes;
     rows.forEach(row => {
@@ -124,12 +134,15 @@ const createActions = () => {
         const td = document.createElement('td');
         buttonEdit.className = 'btn btn-outline-secondary';
         buttonEdit.innerHTML = `<i class="material-icons" title="Edit">&#xE254;</i>`;
-        buttonDelete.className = 'btn btn-outline-danger mx-2';
-        buttonDelete.innerHTML = `<i class="material-icons" title="Delete">&#xE872;</i>`;
         buttonEdit.setAttribute('id', 'edit');
-        buttonDelete.setAttribute('id', 'delete');
         buttonEdit.setAttribute('data-toggle', 'modal');
         buttonEdit.setAttribute('data-target', '#mymodal');
+        buttonDelete.className = 'btn btn-outline-danger mx-2';
+        buttonDelete.innerHTML = `<i class="material-icons" title="Delete">&#xE872;</i>`;
+        buttonDelete.setAttribute('id', 'delete');
+        buttonDelete.setAttribute('data-toggle', 'modal');
+        buttonDelete.setAttribute('data-target', '#my-delete-modal');
+        buttonDelete.addEventListener('click', () => deleteUser(id))
         td.appendChild(buttonDelete);
         td.appendChild(buttonEdit);
         row.appendChild(td);
