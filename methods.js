@@ -27,4 +27,18 @@ const registerUser = (e) => {
         .then(data => console.log(data))
         .catch(error => console.log(error))
 }
+// if (!validar) {
+//     document.getElementById('btn-add-user').disabled = true;
+// } else {
+//     document.getElementById('btn-add-user').disabled = false;
 form.addEventListener('submit', registerUser);
+// }
+
+const deleteUser = (id) => {
+    fetch(`${urlBase}/users/${id}.json`, {
+        method: 'DELETE',
+    }).then(() => createTable())
+
+    console.log('Eliminar' + id)
+}
+
