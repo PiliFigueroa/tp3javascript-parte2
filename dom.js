@@ -46,12 +46,12 @@ const validateField = (expression, input, field) => {
         document.getElementById(`${field}-group`).classList.remove('form-group-incorrect');
         document.getElementById(`${field}-group`).classList.add('form-group-correct');
         fields[field] = true;
-        return true;
+        //return true;
     } else {
         document.getElementById(`${field}-group`).classList.add('form-group-incorrect');
         document.getElementById(`${field}-group`).classList.remove('form-group-correct');
         fields[field] = false;
-        return false;
+        // return false;
     }
 }
 
@@ -82,12 +82,12 @@ const table = document.getElementById('users-list');
 const tbody = document.querySelector('tbody');
 const myModalDelete = document.getElementById('my-modal-delete');
 
-const createTable = (data) => {
+const createTable = (users) => {
 
-    for (let prop in data) {
-        const user = data[prop];
+    for (let index in users) {
+        const user = users[index];
         const tr = document.createElement('tr');
-
+        tr.setAttribute('id', user.id)
         const nameTd = document.createElement('td');
         nameTd.innerHTML = user.fullname;
         tr.appendChild(nameTd);
@@ -104,31 +104,26 @@ const createTable = (data) => {
         tbody.appendChild(tr);
     }
 }
-createTable();
+//createTable();
 
-const createObject = () => {
+const createUserRequest = () => {
     const inputFullname = document.getElementById('fullname');
     const inputEmail = document.getElementById('email');
     const inputAddress = document.getElementById('address');
     const inputPhone = document.getElementById('phone');
-    const createdAt = '';
-    const id = '';
+    //const createdAt = '';
+    //const id = '';
     const fullname = inputFullname.value;
     const email = inputEmail.value;
     const address = inputAddress.value;
     const phone = inputPhone.value;
-    return { fullname, email, address, phone, createdAt, id }
+    return { fullname, email, address, phone }
 }
-
-const params = new URLSearchParams(window.location.search)
-for (const param in params) {
-    console.log(param)
-}
-const id = params.get('fullname');
 
 const createActions = () => {
     const rows = tbody.childNodes;
     rows.forEach(row => {
+
         const buttonEdit = document.createElement('button');
         const buttonDelete = document.createElement('button');
         const td = document.createElement('td');
@@ -141,8 +136,9 @@ const createActions = () => {
         buttonDelete.innerHTML = `<i class="material-icons" title="Delete">&#xE872;</i>`;
         buttonDelete.setAttribute('id', 'delete');
         buttonDelete.setAttribute('data-toggle', 'modal');
-        buttonDelete.setAttribute('data-target', '#my-delete-modal');
-        buttonDelete.addEventListener('click', () => deleteUser(id))
+        buttonDelete.setAttribute('data-target', '#my-delete-modal'); //como pasar datos a la modal
+        buttonDelete.setAttribute('data-id', row.id)
+
         td.appendChild(buttonDelete);
         td.appendChild(buttonEdit);
         row.appendChild(td);
