@@ -6,7 +6,7 @@ fetch(urlBase + '/users')
         createTable(data)
         createActions();
     })
-    .catch(error => console.log(error))
+    .catch(error => console.log("error en GET /users: " + error))
 
 const registerUser = (e) => {
     e.preventDefault();
@@ -15,17 +15,16 @@ const registerUser = (e) => {
         headers: {
             'Content-Type': 'Application/json'
         },
-        body: JSON.stringify(createObject())
+        body: JSON.stringify(createUserRequest())
     })
         .then(response => {
-            console.log(response);
             if (response.ok) {
                 window.location.href = 'index.html';
             }
             return response.json();
         })
-        .then(data => console.log(data))
-        .catch(error => console.log(error))
+        .then(data => console.log("response body POST /users: " + data))
+        .catch(error => console.log("error en POST /users: " + error))
 }
 // if (!validar) {
 //     document.getElementById('btn-add-user').disabled = true;
@@ -33,12 +32,20 @@ const registerUser = (e) => {
 //     document.getElementById('btn-add-user').disabled = false;
 form.addEventListener('submit', registerUser);
 // }
+//const params = new URLSearchParams(window.location.search)
+//for (const param in params) {
+//    console.log(param)
+//}
+//const id = params.get('fullname');
+
+const buttonConfirmDelete = document.getElementById('confirm-delete-user');
+
+buttonConfirmDelete.addEventListener('click', () => deleteUser(id))
 
 const deleteUser = (id) => {
-    fetch(`${urlBase}/users/${id}.json`, {
+    fetch(`${urlBase}/users/${id}`, {
         method: 'DELETE',
     }).then(() => createTable())
 
     console.log('Eliminar' + id)
 }
-
