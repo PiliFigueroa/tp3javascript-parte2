@@ -85,20 +85,25 @@ const myModalDelete = document.getElementById('my-modal-delete');
 const createTable = (users) => {
 
     for (let index in users) {
+        // Creo elementos
         const user = users[index];
         const tr = document.createElement('tr');
-        tr.setAttribute('id', user.id)
         const nameTd = document.createElement('td');
-        nameTd.innerHTML = user.fullname;
-        tr.appendChild(nameTd);
         const emailTd = document.createElement('td');
-        emailTd.innerHTML = user.email;
-        tr.appendChild(emailTd);
         const addressTd = document.createElement('td');
-        addressTd.innerHTML = user.address;
-        tr.appendChild(addressTd);
         const phoneTd = document.createElement('td');
+
+        // Agrego valores
+        nameTd.innerHTML = user.fullname;
+        emailTd.innerHTML = user.email;
+        addressTd.innerHTML = user.address;
         phoneTd.innerHTML = user.phone;
+        tr.setAttribute('id', user.id)
+
+        // Hago appends
+        tr.appendChild(nameTd);
+        tr.appendChild(emailTd);
+        tr.appendChild(addressTd);
         tr.appendChild(phoneTd);
 
         tbody.appendChild(tr);
@@ -129,12 +134,10 @@ const createActions = () => {
         const td = document.createElement('td');
         buttonEdit.className = 'btn btn-outline-secondary';
         buttonEdit.innerHTML = `<i class="material-icons" title="Edit">&#xE254;</i>`;
-        buttonEdit.setAttribute('id', 'edit');
         buttonEdit.setAttribute('data-toggle', 'modal');
         buttonEdit.setAttribute('data-target', '#mymodal');
         buttonDelete.className = 'btn btn-outline-danger mx-2';
         buttonDelete.innerHTML = `<i class="material-icons" title="Delete">&#xE872;</i>`;
-        buttonDelete.setAttribute('id', 'delete');
         buttonDelete.setAttribute('data-toggle', 'modal');
         buttonDelete.setAttribute('data-target', '#my-delete-modal'); //como pasar datos a la modal
         buttonDelete.setAttribute('data-id', row.id)
