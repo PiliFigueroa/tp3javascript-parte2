@@ -10,6 +10,7 @@ fetch(urlBase + '/users')
 
 const registerUser = (e) => {
     e.preventDefault();
+    //validateForm();
     fetch(`${urlBase}/users`, {
         method: 'POST',
         headers: {
@@ -30,6 +31,9 @@ const registerUser = (e) => {
 //     document.getElementById('btn-add-user').disabled = true;
 // } else {
 //     document.getElementById('btn-add-user').disabled = false;
+
+//const addUserBtn = document.getElementById('btn-add-user');
+
 form.addEventListener('submit', registerUser);
 // }
 //const params = new URLSearchParams(window.location.search)
@@ -39,12 +43,17 @@ form.addEventListener('submit', registerUser);
 //const id = params.get('fullname');
 
 const buttonConfirmDelete = document.getElementById('confirm-delete-user');
+const rows = tbody.childNodes;
+//let id = rows[0].getAttribute('id');
+let id = row.id;
+rows.forEach(row => {
+    buttonConfirmDelete.setAttribute('data-target', row.id)
+});
 
 
 const deleteUser = () => {
-    const rows = tbody.childNodes;
-    let id = rows[0].getAttribute('id');
-    fetch(`${urlBase}/users?id=${id}`, {
+
+    fetch(`${urlBase}/users/${id}`, {
         method: 'DELETE',
     })
         .then(response => {
