@@ -1,4 +1,4 @@
-//FUNCIONES DE VALIDACION ACA
+//FUNCIONES DE VALIDACION
 
 const form = document.getElementById('form');
 const inputs = document.querySelectorAll('#form input');
@@ -17,7 +17,7 @@ const fields = {
     phone: false
 }
 
-let validar = false;
+//let validar = false;
 
 const validateForm = (e) => {
 
@@ -80,7 +80,7 @@ form.addEventListener('submit', (e) => {
 
 const table = document.getElementById('users-list');
 const tbody = document.querySelector('tbody');
-const myModalDelete = document.getElementById('my-modal-delete');
+const myModalDelete = document.getElementById('my-delete-modal');
 
 const createTable = (users) => {
 
@@ -139,8 +139,8 @@ const createActions = () => {
         buttonDelete.className = 'btn btn-outline-danger mx-2';
         buttonDelete.innerHTML = `<i class="material-icons" title="Delete">&#xE872;</i>`;
         buttonDelete.setAttribute('data-toggle', 'modal');
-        buttonDelete.setAttribute('data-target', '#my-delete-modal'); //como pasar datos a la modal
-        buttonDelete.setAttribute('data-id', row.id)
+        buttonDelete.setAttribute('data-relatedTarget', '#my-delete-modal'); //como pasar datos a la modal*puede ser 'data-relatedTarget' aca en vez de 'data-target' ya que es el boton que abre la modal?
+        buttonDelete.setAttribute('data-id', row.id) //esto puede ser el data-target en vez de data-id? para que el target sea ese id de la fila que corrresponda
 
         td.appendChild(buttonDelete);
         td.appendChild(buttonEdit);
