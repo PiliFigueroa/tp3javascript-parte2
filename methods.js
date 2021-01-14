@@ -40,12 +40,20 @@ form.addEventListener('submit', registerUser);
 
 const buttonConfirmDelete = document.getElementById('confirm-delete-user');
 
-buttonConfirmDelete.addEventListener('click', () => deleteUser(id))
 
-const deleteUser = (id) => {
-    fetch(`${urlBase}/users/${id}`, {
+const deleteUser = () => {
+    const rows = tbody.childNodes;
+    let id = rows[0].getAttribute('id');
+    fetch(`${urlBase}/users?id=${id}`, {
         method: 'DELETE',
-    }).then(() => createTable())
+    })
+        .then(response => {
+            return response.json()
+        })
+        .then(data => console.log(data))
+        .catch(error => console.log(error))
 
     console.log('Eliminar' + id)
 }
+
+buttonConfirmDelete.addEventListener('click', () => deleteUser())
