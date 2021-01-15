@@ -1,6 +1,6 @@
 const urlBase = 'https://5ff65d8d941eaf0017f379f0.mockapi.io';
 
-fetch(urlBase + '/users')
+fetch(`${urlBase}/users`)
     .then(response => response.json())
     .then(data => {
         createTable(data)
@@ -10,7 +10,7 @@ fetch(urlBase + '/users')
 
 const registerUser = (e) => {
     e.preventDefault();
-    //validateForm();
+
     fetch(`${urlBase}/users`, {
         method: 'POST',
         headers: {
@@ -27,20 +27,8 @@ const registerUser = (e) => {
         .then(data => console.log("response body POST /users: " + data))
         .catch(error => console.log("error en POST /users: " + error))
 }
-// if (!validar) {
-//     document.getElementById('btn-add-user').disabled = true;
-// } else {
-//     document.getElementById('btn-add-user').disabled = false;
-
-//const addUserBtn = document.getElementById('btn-add-user');
 
 form.addEventListener('submit', registerUser);
-// }
-//const params = new URLSearchParams(window.location.search)
-//for (const param in params) {
-//    console.log(param)
-//}
-//const id = params.get('fullname');
 
 const buttonConfirmDelete = document.getElementById('confirm-delete-user');
 const rows = tbody.childNodes;
