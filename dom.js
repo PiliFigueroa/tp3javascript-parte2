@@ -17,8 +17,6 @@ const fields = {
     phone: false
 }
 
-//let validar = false;
-
 const validateForm = (e) => {
 
     switch (e.target.name) {
@@ -45,13 +43,13 @@ const validateField = (expression, input, field) => {
     if (expression.test(input.value)) {
         document.getElementById(`${field}-group`).classList.remove('form-group-incorrect');
         document.getElementById(`${field}-group`).classList.add('form-group-correct');
+        buttonAddUser.classList.remove('disabled');        
         fields[field] = true;
-        //return true;
     } else {
         document.getElementById(`${field}-group`).classList.add('form-group-incorrect');
         document.getElementById(`${field}-group`).classList.remove('form-group-correct');
+        buttonAddUser.classList.add('disabled');        
         fields[field] = false;
-        // return false;
     }
 }
 
@@ -65,7 +63,6 @@ form.addEventListener('submit', (e) => {
 
     if (fields.name && fields.address && fields.email && fields.phone) {
         form.reset();
-        //console.log('formulario enviado');
         document.getElementById('form-message-success').classList.add('form-message-success-active');
         document.getElementById('form-message').style.display = 'none';
         setTimeout(() => {
@@ -73,7 +70,6 @@ form.addEventListener('submit', (e) => {
         }, 5000);
     } else {
         document.getElementById('form-message').classList.add('form-message-active');
-        //console.log('formulario no enviado');
     }
 });
 
@@ -109,15 +105,14 @@ const createTable = (users) => {
         tbody.appendChild(tr);
     }
 }
-//createTable();
 
 const createUserRequest = () => {
+    // Traigo elementos
     const inputFullname = document.getElementById('fullname');
     const inputEmail = document.getElementById('email');
     const inputAddress = document.getElementById('address');
     const inputPhone = document.getElementById('phone');
-    //const createdAt = '';
-    //const id = '';
+    // Asigno valores
     const fullname = inputFullname.value;
     const email = inputEmail.value;
     const address = inputAddress.value;
@@ -128,10 +123,11 @@ const createUserRequest = () => {
 const createActions = () => {
     const rows = tbody.childNodes;
     rows.forEach(row => {
-
+        // Croe elementos
         const buttonEdit = document.createElement('button');
         const buttonDelete = document.createElement('button');
         const td = document.createElement('td');
+        // Seteo valores y atributos
         buttonEdit.className = 'btn btn-outline-secondary';
         buttonEdit.innerHTML = `<i class="material-icons" title="Edit">&#xE254;</i>`;
         buttonEdit.setAttribute('data-toggle', 'modal');
@@ -141,7 +137,7 @@ const createActions = () => {
         buttonDelete.setAttribute('data-toggle', 'modal');
         buttonDelete.setAttribute('data-relatedTarget', '#my-delete-modal'); //como pasar datos a la modal*puede ser 'data-relatedTarget' aca en vez de 'data-target' ya que es el boton que abre la modal?
         buttonDelete.setAttribute('data-id', row.id) //esto puede ser el data-target en vez de data-id? para que el target sea ese id de la fila que corrresponda
-
+        // Hago appends
         td.appendChild(buttonDelete);
         td.appendChild(buttonEdit);
         row.appendChild(td);
