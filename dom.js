@@ -43,12 +43,12 @@ const validateField = (expression, input, field) => {
     if (expression.test(input.value)) {
         document.getElementById(`${field}-group`).classList.remove('form-group-incorrect');
         document.getElementById(`${field}-group`).classList.add('form-group-correct');
-        buttonAddUser.classList.remove('disabled');        
+        buttonAddUser.classList.remove('disabled');
         fields[field] = true;
     } else {
         document.getElementById(`${field}-group`).classList.add('form-group-incorrect');
         document.getElementById(`${field}-group`).classList.remove('form-group-correct');
-        buttonAddUser.classList.add('disabled');        
+        buttonAddUser.classList.add('disabled');
         fields[field] = false;
     }
 }
@@ -123,7 +123,7 @@ const createUserRequest = () => {
 const createActions = () => {
     const rows = tbody.childNodes;
     rows.forEach(row => {
-        // Croe elementos
+        // Creo elementos
         const buttonEdit = document.createElement('button');
         const buttonDelete = document.createElement('button');
         const td = document.createElement('td');
