@@ -10,7 +10,8 @@ fetch(`${urlBase}/users`)
 
 const registerUser = (e) => {
     e.preventDefault();
-
+    spinner.classList.add('d-inline-block');
+    spinner.classList.remove('d-none');
     fetch(`${urlBase}/users`, {
         method: 'POST',
         headers: {
@@ -20,6 +21,8 @@ const registerUser = (e) => {
     })
         .then(response => {
             if (response.ok) {
+                spinner.classList.add('d-none');
+                spinner.classList.remove('d-inline-block');
                 window.location.href = 'index.html';
             }
             return response.json();
