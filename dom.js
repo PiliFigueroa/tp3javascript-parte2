@@ -1,9 +1,9 @@
-//FUNCIONES DE VALIDACION
-
+// Variables
 const form = document.getElementById('form');
 const inputs = document.querySelectorAll('#form input');
 const idDelete = document.getElementById('id-delete');
 
+// FUNCIONES DE VALIDACION
 const expressions = {
     name: /[a-zA-ZÀ-ÿ\s]{1,50}/,
     address: /[a-zA-Z0-9_+-]{1,60}/,
@@ -74,7 +74,7 @@ form.addEventListener('submit', (e) => {
     }
 });
 
-
+// FUNCIONES CREADORAS
 const table = document.getElementById('users-list');
 const tbody = document.querySelector('tbody');
 const myModalDelete = document.getElementById('my-delete-modal');
@@ -128,16 +128,16 @@ const createActions = () => {
         const buttonEdit = document.createElement('button');
         const buttonDelete = document.createElement('button');
         const td = document.createElement('td');
-        // Seteo valores y atributos
+        // Seteo valores y atributos a buttonEdit
         buttonEdit.className = 'btn btn-outline-secondary';
         buttonEdit.innerHTML = `<i class="material-icons" title="Edit">&#xE254;</i>`;
         buttonEdit.setAttribute('data-toggle', 'modal');
         buttonEdit.setAttribute('data-target', '#mymodal');
+        // Seteo valores y atributos a buttonDelete
         buttonDelete.className = 'btn btn-outline-danger mx-2';
         buttonDelete.innerHTML = `<i class="material-icons" title="Delete">&#xE872;</i>`;
         buttonDelete.setAttribute('data-toggle', 'modal');
-        buttonDelete.setAttribute('data-target', '#my-delete-modal'); //como pasar datos a la modal*puede ser 'data-relatedTarget' aca en vez de 'data-target' ya que es el boton que abre la modal?
-        buttonDelete.setAttribute('data-id', row.id) //esto puede ser el data-target en vez de data-id? para que el target sea ese id de la fila que corrresponda
+        buttonDelete.setAttribute('data-target', '#my-delete-modal');
         // Eventos
         buttonDelete.addEventListener("click", () => {
             idDelete.value = row.id;

@@ -1,5 +1,7 @@
+// URL del endpoint de nuestra API
 const urlBase = 'https://5ff65d8d941eaf0017f379f0.mockapi.io';
 
+// Fetch GET para traer los usuarios
 fetch(`${urlBase}/users`)
     .then(response => response.json())
     .then(data => {
@@ -8,6 +10,7 @@ fetch(`${urlBase}/users`)
     })
     .catch(error => console.log("error en GET /users: " + error))
 
+// Fetch POST para agregar un usuario
 const registerUser = (e) => {
     e.preventDefault();
     spinner.classList.add('d-inline-block');
@@ -33,6 +36,7 @@ const registerUser = (e) => {
 
 form.addEventListener('submit', registerUser);
 
+// Fetch DELETE para eliminar el usuario elegido
 const buttonConfirmDelete = document.getElementById('confirm-delete-user');
 
 const deleteUser = (id) => {
