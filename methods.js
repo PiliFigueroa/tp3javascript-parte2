@@ -33,10 +33,10 @@ form.addEventListener('submit', registerUser);
 const buttonConfirmDelete = document.getElementById('confirm-delete-user');
 const rows = tbody.childNodes;
 //let id = rows[0].getAttribute('id');
-let id = row.id;
-rows.forEach(row => {
-    buttonConfirmDelete.setAttribute('data-target', row.id)
-});
+//let id = row.id;
+// rows.forEach(row => {
+//     buttonConfirmDelete.setAttribute('id', row.id)
+// });
 
 
 const deleteUser = () => {

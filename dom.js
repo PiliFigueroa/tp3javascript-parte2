@@ -135,7 +135,7 @@ const createActions = () => {
         buttonDelete.className = 'btn btn-outline-danger mx-2';
         buttonDelete.innerHTML = `<i class="material-icons" title="Delete">&#xE872;</i>`;
         buttonDelete.setAttribute('data-toggle', 'modal');
-        buttonDelete.setAttribute('data-relatedTarget', '#my-delete-modal'); //como pasar datos a la modal*puede ser 'data-relatedTarget' aca en vez de 'data-target' ya que es el boton que abre la modal?
+        buttonDelete.setAttribute('data-target', '#my-delete-modal'); //como pasar datos a la modal*puede ser 'data-relatedTarget' aca en vez de 'data-target' ya que es el boton que abre la modal?
         buttonDelete.setAttribute('data-id', row.id) //esto puede ser el data-target en vez de data-id? para que el target sea ese id de la fila que corrresponda
         // Hago appends
         td.appendChild(buttonDelete);
