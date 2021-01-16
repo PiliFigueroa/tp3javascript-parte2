@@ -2,6 +2,7 @@
 
 const form = document.getElementById('form');
 const inputs = document.querySelectorAll('#form input');
+const idDelete = document.getElementById('id-delete');
 
 const expressions = {
     name: /[a-zA-ZÀ-ÿ\s]{1,50}/,
@@ -137,6 +138,10 @@ const createActions = () => {
         buttonDelete.setAttribute('data-toggle', 'modal');
         buttonDelete.setAttribute('data-target', '#my-delete-modal'); //como pasar datos a la modal*puede ser 'data-relatedTarget' aca en vez de 'data-target' ya que es el boton que abre la modal?
         buttonDelete.setAttribute('data-id', row.id) //esto puede ser el data-target en vez de data-id? para que el target sea ese id de la fila que corrresponda
+        // Eventos
+        buttonDelete.addEventListener("click", () => {
+            idDelete.value = row.id;
+        })
         // Hago appends
         td.appendChild(buttonDelete);
         td.appendChild(buttonEdit);

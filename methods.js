@@ -34,26 +34,22 @@ const registerUser = (e) => {
 form.addEventListener('submit', registerUser);
 
 const buttonConfirmDelete = document.getElementById('confirm-delete-user');
-const rows = tbody.childNodes;
-//let id = rows[0].getAttribute('id');
-//let id = row.id;
-// rows.forEach(row => {
-//     buttonConfirmDelete.setAttribute('id', row.id)
-// });
 
-
-const deleteUser = () => {
-
+const deleteUser = (id) => {
     fetch(`${urlBase}/users/${id}`, {
-        method: 'DELETE',
+        method: 'DELETE'
     })
         .then(response => {
+            if (response.ok) {
+                window.location.href = 'index.html';
+            }
             return response.json()
         })
         .then(data => console.log(data))
         .catch(error => console.log(error))
-
-    console.log('Eliminar' + id)
 }
 
-buttonConfirmDelete.addEventListener('click', () => deleteUser())
+buttonConfirmDelete.addEventListener('click', () => {
+    const idDelete = document.getElementById('id-delete');
+    deleteUser(idDelete.value);
+});
