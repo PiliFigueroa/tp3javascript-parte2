@@ -57,3 +57,41 @@ buttonConfirmDelete.addEventListener('click', () => {
     const idDelete = document.getElementById('id-delete');
     deleteUser(idDelete.value);
 });
+
+const getUser = (id) => {
+    fetch(`${urlBase}/users/${id}`)
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            document.getElementById('edit-fullname').value = data.fullname;
+            document.getElementById('edit-email').value = data.email;
+            document.getElementById('edit-address').value = data.address;
+            document.getElementById('edit-phone').value = data.phone;
+        })
+        .catch(error => console.log(error))
+}
+
+const updateUser = (id) => {
+    fetch(`${urlBase}/users/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'Application/json'
+        },
+        body: JSON.stringify(getUser(id))
+    })
+        .then(response => {
+            if (response.ok) {
+                window.location.href = 'index.html';
+            }
+            return response.json()
+        })
+        .then(data => console.log(data))
+        .catch(error => console.log(error))
+}
+
+const buttonUpdate = document.getElementById('btn-edit-user');
+buttonUpdate.addEventListener('click', () => {
+    const idEdit = document.getElementById('id-edit');
+    updateUser(idEdit.value);
+});

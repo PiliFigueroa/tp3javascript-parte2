@@ -2,6 +2,7 @@
 const form = document.getElementById('form');
 const inputs = document.querySelectorAll('#form input');
 const idDelete = document.getElementById('id-delete');
+const idEdit = document.getElementById('id-edit');
 
 // FUNCIONES DE VALIDACION
 const expressions = {
@@ -77,7 +78,6 @@ form.addEventListener('submit', (e) => {
 // FUNCIONES CREADORAS
 const table = document.getElementById('users-list');
 const tbody = document.querySelector('tbody');
-const myModalDelete = document.getElementById('my-delete-modal');
 
 const createTable = (users) => {
 
@@ -132,7 +132,7 @@ const createActions = () => {
         buttonEdit.className = 'btn btn-outline-secondary';
         buttonEdit.innerHTML = `<i class="material-icons" title="Edit">&#xE254;</i>`;
         buttonEdit.setAttribute('data-toggle', 'modal');
-        buttonEdit.setAttribute('data-target', '#mymodal');
+        buttonEdit.setAttribute('data-target', '#my-edit-modal');
         // Seteo valores y atributos a buttonDelete
         buttonDelete.className = 'btn btn-outline-danger mx-2';
         buttonDelete.innerHTML = `<i class="material-icons" title="Delete">&#xE872;</i>`;
@@ -141,7 +141,10 @@ const createActions = () => {
         // Eventos
         buttonDelete.addEventListener("click", () => {
             idDelete.value = row.id;
-        })
+        });
+        buttonEdit.addEventListener('click', () => {
+            idEdit.value = row.id;
+        });
         // Hago appends
         td.appendChild(buttonDelete);
         td.appendChild(buttonEdit);
