@@ -1,6 +1,9 @@
 // Variables
 const form = document.getElementById('form');
-const inputs = document.querySelectorAll('#form input');
+const formEdit = document.getElementById('form-edit');
+const inputs = document.querySelectorAll('form input');
+const buttonAddUser = document.getElementById('btn-add-user');
+const buttonEditUser = document.getElementById('btn-edit-user');
 const idDelete = document.getElementById('id-delete');
 const idEdit = document.getElementById('id-edit');
 
@@ -46,11 +49,13 @@ const validateField = (expression, input, field) => {
         document.getElementById(`${field}-group`).classList.remove('form-group-incorrect');
         document.getElementById(`${field}-group`).classList.add('form-group-correct');
         buttonAddUser.classList.remove('disabled');
+        buttonEditUser.classList.remove('disabled');
         fields[field] = true;
     } else {
         document.getElementById(`${field}-group`).classList.add('form-group-incorrect');
         document.getElementById(`${field}-group`).classList.remove('form-group-correct');
         buttonAddUser.classList.add('disabled');
+        buttonEditUser.classList.add('disabled');
         fields[field] = false;
     }
 }
@@ -60,7 +65,7 @@ inputs.forEach((input) => {
     input.addEventListener('blur', validateForm);
 });
 
-form.addEventListener('submit', (e) => {
+const finalValidation = (e) => {
     e.preventDefault();
 
     if (fields.name && fields.address && fields.email && fields.phone) {
@@ -73,7 +78,10 @@ form.addEventListener('submit', (e) => {
     } else {
         document.getElementById('form-message').classList.add('form-message-active');
     }
-});
+}
+
+form.addEventListener('submit', finalValidation);
+formEdit.addEventListener('submit', finalValidation);
 
 // FUNCIONES CREADORAS
 const table = document.getElementById('users-list');
@@ -121,6 +129,40 @@ const createUserRequest = () => {
     return { fullname, email, address, phone }
 }
 
+// Funcion para traer la info del usuario seleccionado
+const showUserInfo = (data) => {
+    inputFullname.value = data.fullname;
+    inputEmail.value = data.email;
+    inputAddress.value = data.address;
+    inputPhone.value = data.phone;
+}
+
+// Traigo elementos de modal edit
+const inputFullname = document.getElementById('edit-fullname');
+const inputEmail = document.getElementById('edit-email');
+const inputAddress = document.getElementById('edit-address');
+const inputPhone = document.getElementById('edit-phone');
+const createUserPutRequest = () => {
+    // Asigno valores
+    const fullname = inputFullname.value;
+    const email = inputEmail.value;
+    const address = inputAddress.value;
+    const phone = inputPhone.value;
+    return { fullname, email, address, phone }
+}
+
+// Fetch GET para traer el usuario seleccionado para editar
+const getUser = (id) => {
+    fetch(`${urlBase}/users?id=${id}`)
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            showUserInfo(data[0]);
+        })
+        .catch(error => console.log(`error en fetch GET /users: ${error}`))
+}
+
 const createActions = () => {
     const rows = tbody.childNodes;
     rows.forEach(row => {
@@ -144,6 +186,7 @@ const createActions = () => {
         });
         buttonEdit.addEventListener('click', () => {
             idEdit.value = row.id;
+            getUser(row.id);
         });
         // Hago appends
         td.appendChild(buttonDelete);

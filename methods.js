@@ -58,20 +58,6 @@ buttonConfirmDelete.addEventListener('click', () => {
     deleteUser(idDelete.value);
 });
 
-const getUser = (id) => {
-    fetch(`${urlBase}/users/${id}`)
-        .then(response => {
-            return response.json()
-        })
-        .then(data => {
-            document.getElementById('edit-fullname').value = data.fullname;
-            document.getElementById('edit-email').value = data.email;
-            document.getElementById('edit-address').value = data.address;
-            document.getElementById('edit-phone').value = data.phone;
-        })
-        .catch(error => console.log(error))
-}
-
 const updateUser = (id) => {
     fetch(`${urlBase}/users/${id}`, {
         method: 'PUT',
