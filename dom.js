@@ -88,7 +88,7 @@ const table = document.getElementById('users-list');
 const tbody = document.querySelector('tbody');
 
 const createTable = (users) => {
-
+    document.getElementById('tbody').innerHTML = "";
     for (let index in users) {
         // Creo elementos
         const user = users[index];
