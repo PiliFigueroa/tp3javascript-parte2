@@ -49,8 +49,8 @@ const deleteUser = (id) => {
             }
             return response.json()
         })
-        .then(data => console.log(data))
-        .catch(error => console.log(error))
+        .then(data => console.log(`response fetch DELETE /users: ${data}`))
+        .catch(error => console.log(`error en DELETE /users: ${error}`))
 }
 
 buttonConfirmDelete.addEventListener('click', () => {
@@ -81,3 +81,25 @@ buttonUpdate.addEventListener('click', () => {
     const idEdit = document.getElementById('id-edit');
     updateUser(idEdit.value);
 });
+
+
+const filterUsersByEmailOrName = (input) => {
+
+    const isEmail = expressions.email.test(input);
+
+    let param = isEmail == true ? "email" : "fullname";
+
+    fetch(`${urlBase}/users?${param}=${input}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log("resultados: " + JSON.stringify(data))
+            createTable(data)
+            createActions();
+        })
+        .catch(error => console.log(`error en GET /users: ${error}`))
+}
+
+document.getElementById('filter').addEventListener('click', () => {
+    filterUsersByEmailOrName(document.getElementById('search').value)
+});
+
