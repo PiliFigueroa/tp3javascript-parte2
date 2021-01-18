@@ -64,7 +64,7 @@ const updateUser = (id) => {
         headers: {
             'Content-Type': 'Application/json'
         },
-        body: JSON.stringify(getUser(id))
+        body: JSON.stringify(createUserPutRequest())
     })
         .then(response => {
             if (response.ok) {
