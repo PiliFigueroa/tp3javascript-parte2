@@ -1,4 +1,4 @@
-// Variables
+// VARIABLES
 const form = document.getElementById('form');
 const formEdit = document.getElementById('form-edit');
 const inputs = document.querySelectorAll('form input');
@@ -7,7 +7,7 @@ const buttonEditUser = document.getElementById('btn-edit-user');
 const idDelete = document.getElementById('id-delete');
 const idEdit = document.getElementById('id-edit');
 
-// FUNCIONES DE VALIDACION
+// OBJETO CON EXPRESIONES REGULARES PARA VALIDACIÓN DE FORMULARIOS EN MODALES
 const expressions = {
     name: /[a-zA-ZÀ-ÿ\s]{1,50}/,
     address: /[a-zA-Z0-9_+-]{1,60}/,
@@ -22,6 +22,7 @@ const fields = {
     phone: false
 }
 
+//FUNCIÓN PARA VALIDAR FORMULARIO
 const validateForm = (e) => {
 
     switch (e.target.name) {
@@ -43,28 +44,52 @@ const validateForm = (e) => {
     }
 }
 
+//FUNCIÓN PARA VALIDAR INPUTS CON EXPRESIONES REGULARES Y CSS
 const validateField = (expression, input, field) => {
 
     if (expression.test(input.value)) {
         document.getElementById(`${field}-group`).classList.remove('form-group-incorrect');
         document.getElementById(`${field}-group`).classList.add('form-group-correct');
-        buttonAddUser.classList.remove('disabled');
-        buttonEditUser.classList.remove('disabled');
+        document.getElementById(`${field}-edit-group`).classList.remove('form-group-incorrect');
+        document.getElementById(`${field}-edit-group`).classList.add('form-group-correct');
         fields[field] = true;
     } else {
         document.getElementById(`${field}-group`).classList.add('form-group-incorrect');
         document.getElementById(`${field}-group`).classList.remove('form-group-correct');
-        buttonAddUser.classList.add('disabled');
-        buttonEditUser.classList.add('disabled');
+        document.getElementById(`${field}-edit-group`).classList.add('form-group-incorrect');
+        document.getElementById(`${field}-edit-group`).classList.remove('form-group-correct');
         fields[field] = false;
     }
 }
 
+//FUNCIÓN PARA HABILITAR BOTONES PARA AGREGAR Y EDITAR USUARIOS
+const enableSubmitFormButton = (e) => {
+    e.preventDefault();
+    if (fields.name && fields.address && fields.email && fields.phone) {
+        buttonAddUser.classList.remove('disabled');
+        buttonEditUser.classList.remove('disabled');
+        document.getElementById('form-message').classList.remove('form-message-active');
+        document.getElementById('form-edit-message').classList.remove('form-message-active');
+    } else {
+        buttonAddUser.classList.add('disabled');
+        buttonEditUser.classList.add('disabled');
+        document.getElementById('form-message').classList.add('form-message-active');
+        document.getElementById('form-edit-message').classList.add('form-message-active');
+        setTimeout(() => {
+            document.getElementById('form-edit-message').classList.remove('form-message-active');
+        }, 3000);
+    }
+}
+
+//EVENTOS QUE VALIDAN LOS DATOS INGRESADOS EN CASO DE CLICKEAR SOBRE O FUERA DE LAS MODALES
 inputs.forEach((input) => {
     input.addEventListener('keyup', validateForm);
     input.addEventListener('blur', validateForm);
+    input.addEventListener('blur', enableSubmitFormButton);
+    input.addEventListener('keyup', enableSubmitFormButton);
 });
 
+//FUNCIÓN FINAL DE VALIDACIÓN PARA CONFIRMAR ÉXITO O NO EN EL ENVÍO DE DATOS Y HABILITA BOTÓN DE ENVÍO
 const finalValidation = (e) => {
     e.preventDefault();
 
@@ -75,11 +100,19 @@ const finalValidation = (e) => {
         setTimeout(() => {
             document.getElementById('form-message-success').classList.remove('form-message-success-active');
         }, 5000);
-    } else {
-        document.getElementById('form-message').classList.add('form-message-active');
+
+        document.getElementById('form-edit-message-success').classList.add('form-message-success-active');
+        document.getElementById('form-edit-message').style.display = 'none';
+        setTimeout(() => {
+            document.getElementById('form-edit-message-success').classList.remove('form-message-success-active');
+        }, 5000);
+
+    } else if (input.value = '') {
+        buttonAddUser.classList.add('disabled');
+        buttonEditUser.classList.add('disabled');
     }
 }
-
+//EVENTOS PARA LA VALIDACIÓN DE INPUTS EN MODALES
 form.addEventListener('submit', finalValidation);
 formEdit.addEventListener('submit', finalValidation);
 
@@ -129,7 +162,7 @@ const createUserRequest = () => {
     return { fullname, email, address, phone }
 }
 
-// Funcion para traer la info del usuario seleccionado
+//FUNCIÓN PARA MOSTRAR INFO DEL USUARIO SELECCIONADO
 const showUserInfo = (data) => {
     inputFullname.value = data.fullname;
     inputEmail.value = data.email;
@@ -151,7 +184,7 @@ const createUserPutRequest = () => {
     return { fullname, email, address, phone }
 }
 
-// Fetch GET para traer el usuario seleccionado para editar
+//FETCH GET POR ID PARA TRAER EL USUARIO SELECCIONADO PARA EDITAR
 const getUser = (id) => {
     fetch(`${urlBase}/users?id=${id}`)
         .then(response => {
@@ -163,6 +196,7 @@ const getUser = (id) => {
         .catch(error => console.log(`error en fetch GET /users: ${error}`))
 }
 
+//FUNCIÓN CREADORA DE BOTONES ELIMINAR Y EDITAR EN TABLA
 const createActions = () => {
     const rows = tbody.childNodes;
     rows.forEach(row => {
