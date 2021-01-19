@@ -33,7 +33,7 @@
                 </div>
             </div>
 
-            <div class="row d-flex justify-content-md-end justify-content-sm-center">
+            <div class="row d-flex justify-content-lg-end justify-content-sm-center">
                 <div class="col-sm-6 col-md-4 mr-5 px-4">
                     <div class="form-group d-flex flex-row">
                         <label for="filter"></label>
@@ -114,8 +114,8 @@
                                     </div>
                                     <div class="form-message" id="form-message">
                                         <p><i class="fas fa-exclamation-triangle"></i>
-                                            <b>Error:</b>
-                                            Please fill in the form correctly.
+                                            <b>Attention:</b>
+                                            Please fill all items in the form correctly.
                                         </p>
                                     </div>
                                     <div class="form-message-success" id="form-message-success">
@@ -128,7 +128,7 @@
                                         <button type="button" class="btn btn-secondary"
                                             data-dismiss="modal">Close</button>
                                         <div class="form-group form-group-btn-submit">
-                                            <button type="submit" class="btn btn-success" id="btn-add-user">Add
+                                            <button type="submit" class="btn btn-success disabled" id="btn-add-user">Add
                                                 User
                                                 <div class="spinner-border text-light d-none spinner-border-sm ms-4"
                                                     id="spinner" role="status">
@@ -137,10 +137,8 @@
                                             </button>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -165,7 +163,7 @@
                             <div class="row">
                                 <div class="col">
                                     <!-- Group: name -->
-                                    <div class="form-group" id="name-group">
+                                    <div class="form-group" id="name-edit-group">
                                         <label for="name" class="form-label">Name</label>
                                         <div class="form-group-input">
                                             <input type="text" name="name" id="edit-fullname" class="form-control"
@@ -173,7 +171,7 @@
                                         </div>
                                     </div>
                                     <!-- Group: email -->
-                                    <div class="form-group" id="email-group">
+                                    <div class="form-group" id="email-edit-group">
                                         <label for="email" class="form-label">Email</label>
                                         <div class="form-group-input">
                                             <input type="email" name="email" id="edit-email" class="form-control"
@@ -181,7 +179,7 @@
                                         </div>
                                     </div>
                                     <!-- Group: address -->
-                                    <div class="form-group" id="address-group">
+                                    <div class="form-group" id="address-edit-group">
                                         <label for="address" class="form-label">Address</label>
                                         <div class="form-group-input">
                                             <input type="text" name="address" id="edit-address" class="form-control"
@@ -189,7 +187,7 @@
                                         </div>
                                     </div>
                                     <!-- Group: phone -->
-                                    <div class="form-group" id="phone-group">
+                                    <div class="form-group" id="phone-edit-group">
                                         <label for="phone" class="form-label">Phone
                                             Number</label>
                                         <div class="form-group-input">
@@ -197,13 +195,13 @@
                                                 placeholder="11-2222-3333" required>
                                         </div>
                                     </div>
-                                    <div class="form-message" id="form-message">
+                                    <div class="form-message" id="form-edit-message">
                                         <p><i class="fas fa-exclamation-triangle"></i>
-                                            <b>Error:</b>
-                                            Please fill in the form correctly.
+                                            <b>Attention:</b>
+                                            Please fill all items in the form correctly.
                                         </p>
                                     </div>
-                                    <div class="form-message-success" id="form-message-success">
+                                    <div class="form-message-success" id="form-edit-message-success">
                                         <p><b>Success!</b>
                                             The user has been updated correctly. </p>
                                     </div>
@@ -213,7 +211,8 @@
                                         <button type="button" class="btn btn-secondary"
                                             data-dismiss="modal">Close</button>
                                         <div class="form-group form-group-btn-submit">
-                                            <button type="submit" class="btn btn-primary" id="btn-edit-user">Update
+                                            <button type="submit" class="btn btn-primary disabled"
+                                                id="btn-edit-user">Update
                                                 User</button>
                                         </div>
                                     </div>
@@ -245,7 +244,7 @@
                     <input type="hidden" name="id" id="id-delete">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="confirm-delete-user">Delete</button>
+                    <button type="button" class="btn btn-danger" id="confirm-delete-user">Delete</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                 </div>
             </div>
