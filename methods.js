@@ -92,7 +92,6 @@ const filterUsersByEmailOrName = (input) => {
     fetch(`${urlBase}/users?${param}=${input}`)
         .then(response => response.json())
         .then(data => {
-            console.log("resultados: " + JSON.stringify(data))
             createTable(data)
             createActions();
         })
