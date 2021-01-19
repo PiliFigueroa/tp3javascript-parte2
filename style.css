@@ -74,8 +74,7 @@ th {
   font-size: 12px;
 }
 
-.modal-body .form-group input,
-.modal-body .form-group textarea {
+.modal-body .form-group input {
   width: 100%;
   margin: 10px 0;
   display: flex;
@@ -87,19 +86,6 @@ th {
 	border: 3px solid #0075FF;
 	outline: none;
 	box-shadow: 3px 0px 30px rgba(163,163,163, 0.4);
-}
-
-.form-control-error-active {
-	display: block;
-}
-
-.form-validation-state {
-	position: absolute;
-	right: 10px;
-	bottom: 15px;
-	z-index: 100;
-	font-size: 16px;
-	opacity: 0;
 }
 
 .form-message,
@@ -125,12 +111,6 @@ th {
 	margin: 0;
 }
 
-.formulario__grupo-btn-enviar {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
 .form-group-btn-submit {
 	display: flex;
 	flex-direction: column;
@@ -152,28 +132,20 @@ th {
 	display: block;
 }
 
-/* ----- -----  Validation styles ----- ----- */
+/* ESTILOS DE VALIDACIÓN */
 
-.form-group-correct .form-validation-state {
-	color: #1ed12d;
+.form-group-correct input{
+	border: 3px solid #1ed12d;
 	opacity: 1;
 }
 
-.form-group-incorrect .form-label {
-	color: #bb2929;
-}
-
-.form-group-incorrect .form-validation-state {
-	color: #bb2929;
-	opacity: 1;
-}
-
-.form-group-incorrect .form-control {
-	border: 3px solid #bb2929;
+.form-group-incorrect input{
+  border: 3px solid #bb2929;
+  opacity: 1;
 }
 
 #filter {
-    height: 35px;
+    height: 34px;
     margin-top: 20px;
 }
 th {
@@ -182,6 +154,10 @@ th {
 
 td {
   font-size: 15px;
+}
+
+tr {
+  text-align: center;
 }
 
 #delete-question {
