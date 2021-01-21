@@ -75,9 +75,6 @@ const enableSubmitFormButton = (e) => {
         buttonEditUser.classList.add('disabled');
         document.getElementById('form-message').classList.add('form-message-active');
         document.getElementById('form-edit-message').classList.add('form-message-active');
-        setTimeout(() => {
-            document.getElementById('form-edit-message').classList.remove('form-message-active');
-        }, 3000);
     }
 }
 
