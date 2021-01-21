@@ -206,11 +206,13 @@ const createActions = () => {
         buttonEdit.innerHTML = `<i class="material-icons" title="Edit">&#xE254;</i>`;
         buttonEdit.setAttribute('data-toggle', 'modal');
         buttonEdit.setAttribute('data-target', '#my-edit-modal');
+        buttonEdit.setAttribute('id', 'buttonEdit');
         // Seteo valores y atributos a buttonDelete
         buttonDelete.className = 'btn btn-outline-danger mx-2';
         buttonDelete.innerHTML = `<i class="material-icons" title="Delete">&#xE872;</i>`;
         buttonDelete.setAttribute('data-toggle', 'modal');
         buttonDelete.setAttribute('data-target', '#my-delete-modal');
+        buttonDelete.setAttribute('id', 'buttonDelete');
         // Eventos
         buttonDelete.addEventListener("click", () => {
             idDelete.value = row.id;
